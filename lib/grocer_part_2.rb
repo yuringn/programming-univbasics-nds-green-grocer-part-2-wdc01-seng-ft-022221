@@ -47,9 +47,9 @@ def checkout(cart, coupons)
   # * consolidate_cart
   # * apply_coupons
   # * apply_clearance
-new_cart = consolidate_cart(cart)
-couponed_cart = apply_coupons(new_cart,coupons)
-clearance_cart =apply_clearance(couponed_cart)
+consolidated_cart = consolidate_cart(cart)
+couponed_cart = apply_coupons(consolidated_cart,coupons)
+final_cart =apply_clearance(couponed_cart)
 end
 checkout([
   {:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 3},
