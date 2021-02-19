@@ -53,6 +53,7 @@ final_cart =apply_clearance(couponed_cart)
 final_cart.map do |item|
   binding.pry
 end
+end
 checkout([
   {:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 3},
   {:item => "KALE",    :price => 3.00, :clearance => false, :count => 1}
