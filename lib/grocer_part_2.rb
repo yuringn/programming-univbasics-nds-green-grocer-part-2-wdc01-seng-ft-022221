@@ -29,7 +29,7 @@ apply_coupons([
   #new_cart=[]
   cart.map do |cart_item|
     if cart_item == true
-      cart_item[:price] *= 0.8.round(2)
+      cart_item[:price] *= 0.8
       #binding.pry
     end
 p cart_item
