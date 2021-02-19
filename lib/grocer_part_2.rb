@@ -52,8 +52,11 @@ couponed_cart = apply_coupons(consolidated_cart,coupons)
 final_cart =apply_clearance(couponed_cart)
 final_cart.map do |item|
   total = item[:price] * item[:count]
-  
+  if total > 100
+    total = (total * 0.9).round(2)
+  end
 end
+total
 end
 checkout([
   {:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 3},
