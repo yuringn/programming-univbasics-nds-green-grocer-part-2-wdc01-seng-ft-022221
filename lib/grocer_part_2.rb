@@ -26,7 +26,7 @@ apply_coupons([
 ])
 
 def apply_clearance(cart)
-  cart.map.uniq! do |cart_item|
+  cart.uniq! do |cart_item|
     binding.pry
   end
 end
