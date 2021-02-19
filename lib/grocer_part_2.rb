@@ -28,6 +28,7 @@ apply_coupons([
 def apply_clearance(cart)
   cart.map.uniq! do |cart_item|
     binding.pry
+  end
 end
 apply_clearance([
   {:item => "PEANUT BUTTER", :price => 3.00, :clearance => true,  :count => 2},
