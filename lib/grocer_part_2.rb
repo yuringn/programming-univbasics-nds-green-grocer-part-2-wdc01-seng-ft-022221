@@ -26,18 +26,14 @@ apply_coupons([
 ])
 
 def apply_clearance(cart)
-  new_cart=[]
+  #new_cart=[]
   cart.map do |cart_item|
-    new_cart_item = find_item_by_name_in_collection(cart_item[:item], new_cart)
-      if new_cart_item && cart_item[:cleanrance] == true
-        new_cart << {:item => new_cart_item,
-        :price =>cart_item[:price] *=0.8.round(2),
-        :clearance => new_cart_item[:clearance],
-        :count => new_cart_item[:count]}
+    if cart_item == true
+      cart_item[price] * 0.8
       #binding.pry
     end
   end
-  p new_cart.uniq!
+  p cart.uniq!
 end
 apply_clearance([
   {:item => "PEANUT BUTTER", :price => 3.00, :clearance => true,  :count => 2},
