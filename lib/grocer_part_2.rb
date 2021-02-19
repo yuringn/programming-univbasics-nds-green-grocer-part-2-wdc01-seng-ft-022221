@@ -54,11 +54,12 @@ total = 0
 
   final_cart.each do |item|
     total += item[:price] * item[:count]
-  end
+
 
   total *= 0.9 if total > 100
 
   total.round(2)
+  end
 end
 checkout([
   {:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 3},
