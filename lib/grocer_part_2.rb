@@ -1,10 +1,29 @@
 require_relative './part_1_solution.rb'
-
+require"pry"
 def apply_coupons(cart, coupons)
-  # Consult README for inputs and outputs
-  #
-  # REMEMBER: This method **should** update cart
+
+    coupons.map do |coupon|
+      cart_item = find_item_by_name_in_collection(coupon[:item], cart)
+      couponed_item_in_basket = "#{coupon[:item]} W/COUPON"
+      if cart_item !=nil && cart_item[:count] >= coupon[:num]
+        cart << {:item => couponed_item_in_basket,
+        :price => coupon[:cost] / coupon[:num],
+      :clearance =>cart_item[:clearance],
+    :count => coupon[:num] }
+    cart_item[:count] -= coupon[:num]
+      end
+    end
+  p cart
 end
+apply_coupons([
+  {:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 3},
+  {:item => "KALE",    :price => 3.00, :clearance => false, :count => 1}
+],
+[
+  {:item => "AVOCADO", :num => 2, :cost => 5.00},
+  {:item => "BEER", :num => 2, :cost => 20.00},
+  {:item => "CHEESE", :num => 3, :cost => 15.00}
+])
 
 def apply_clearance(cart)
   # Consult README for inputs and outputs
