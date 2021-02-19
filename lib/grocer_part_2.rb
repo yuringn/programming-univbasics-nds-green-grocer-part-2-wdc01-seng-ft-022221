@@ -25,8 +25,6 @@ apply_coupons([
   {:item => "CHEESE", :num => 3, :cost => 15.00}
 ])
 
-def apply_clearance(cart)
-  #new_cart=[]
   def apply_clearance(cart)
   #new_cart=[]
   cart.map do |cart_item|
