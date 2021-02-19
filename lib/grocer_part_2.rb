@@ -55,8 +55,9 @@ final_cart.map do |item|
   if total > 100
     total = (total * 0.9).round(2)
   end
+  p total
 end
-p total
+
 end
 checkout([
   {:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 3},
