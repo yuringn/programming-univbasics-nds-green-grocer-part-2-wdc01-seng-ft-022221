@@ -50,6 +50,8 @@ def checkout(cart, coupons)
 consolidated_cart = consolidate_cart(cart)
 couponed_cart = apply_coupons(consolidated_cart,coupons)
 final_cart =apply_clearance(couponed_cart)
+final_cart.map do |item|
+  binding.pry
 end
 checkout([
   {:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 3},
