@@ -32,8 +32,9 @@ apply_coupons([
       cart_item[:price] *= 0.8
       #binding.pry
     end
-p cart_item
+
   end
+  p cart
 end
 apply_clearance([
   {:item => "PEANUT BUTTER", :price => 3.00, :clearance => true,  :count => 2},
