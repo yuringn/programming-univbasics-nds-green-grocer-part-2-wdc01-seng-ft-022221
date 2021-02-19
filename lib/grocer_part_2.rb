@@ -28,7 +28,7 @@ apply_coupons([
   def apply_clearance(cart)
   #new_cart=[]
   cart.map do |cart_item|
-    if cart_item == true
+    if cart_item
       cart_item[:price] *= 0.8
       #binding.pry
     end
