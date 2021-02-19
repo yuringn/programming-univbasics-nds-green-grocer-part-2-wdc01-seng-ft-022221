@@ -25,22 +25,22 @@ apply_coupons([
   {:item => "CHEESE", :num => 3, :cost => 15.00}
 ])
 
-  def apply_clearance(cart)
-  #new_cart=[]
-  cart.map do |cart_item|
-    if cart_item
-      cart_item[:price] *= 0.8.round(2)
-      #binding.pry
-    end
-
+def apply_clearance(cart)
+#new_cart=[]
+cart.map do |cart_item|
+  if cart_item
+    cart_item[:price] = (cart_item[:price]*0.8).round(2)
+    #binding.pry
   end
-  p cart
+end
+p cart
 end
 apply_clearance([
-  {:item => "PEANUT BUTTER", :price => 3.00, :clearance => true,  :count => 2},
-  {:item => "KALE", :price => 3.00, :clearance => false, :count => 3},
-  {:item => "SOY MILK", :price => 4.50, :clearance => true,  :count => 1}
+{:item => "PEANUT BUTTER", :price => 3.00, :clearance => true,  :count => 2},
+{:item => "KALE", :price => 3.00, :clearance => false, :count => 3},
+{:item => "SOY MILK", :price => 4.50, :clearance => true,  :count => 1}
 ])
+
 
 def checkout(cart, coupons)
   # Consult README for inputs and outputs
