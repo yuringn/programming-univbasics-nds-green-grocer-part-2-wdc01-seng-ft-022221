@@ -26,18 +26,25 @@ apply_coupons([
 ])
 
 def apply_clearance(cart)
-  cart.uniq! do |cart_item|
-  if cart_item[:cleanrance] == true
-    cart_item[:price] *= 20%
+  new_cart=[]
+  cart.map do |cart_item|
+    new_cart_item = find_item_by_name_in_collection(cart_item[:item], new_cart)
+      if new_cart_item && cart_item[:cleanrance] == true
+        new_cart << {:item => new_cart_item,
+        :price =>cart_item[:price] * 0.2,
+        :clearance => new_cart_item[:clearance],
+        :count => new_cart_item[:count]}
+      #binding.pry
+    end
   end
-  end
-  p cart
+  p new_cart.uniq!
 end
 apply_clearance([
   {:item => "PEANUT BUTTER", :price => 3.00, :clearance => true,  :count => 2},
   {:item => "KALE", :price => 3.00, :clearance => false, :count => 3},
   {:item => "SOY MILK", :price => 4.50, :clearance => true,  :count => 1}
 ])
+
 def checkout(cart, coupons)
   # Consult README for inputs and outputs
   #
