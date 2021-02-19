@@ -27,8 +27,11 @@ apply_coupons([
 
 def apply_clearance(cart)
   cart.uniq! do |cart_item|
-    binding.pry
+  if cart_item[:cleanrance] == true
+    cart_item[:price] *= 20%
   end
+  end
+  p cart
 end
 apply_clearance([
   {:item => "PEANUT BUTTER", :price => 3.00, :clearance => true,  :count => 2},
