@@ -53,7 +53,6 @@ final_cart =apply_clearance(couponed_cart)
 total = 0
 final_cart.map do |item|
   total = item[:price] * item[:count]
-
     total = (total * 0.9).round(2) if total > 100
   p total
 end
