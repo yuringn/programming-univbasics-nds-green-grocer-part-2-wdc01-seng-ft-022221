@@ -31,7 +31,7 @@ def apply_clearance(cart)
     new_cart_item = find_item_by_name_in_collection(cart_item[:item], new_cart)
       if new_cart_item && cart_item[:cleanrance] == true
         new_cart << {:item => new_cart_item,
-        :price =>cart_item[:price] * 0.2,
+        :price =>cart_item[:price] * 0.2.round(2),
         :clearance => new_cart_item[:clearance],
         :count => new_cart_item[:count]}
       #binding.pry
